@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>compositionApi</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{count}}</div>
+      <button @click="count++">inc</button>
+    </div>
+
+    <div id="app2">
+      <div>{{count}}</div>
+      <button @click="inc">inc2</button>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+      createApp({
+        setup() {
+          const count = ref(0);
+          return {
+            count,
+          };
+        },
+      }).mount("#app");
+    </script>
+
+    <script type="module">
+      import { createApp, ref } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      createApp({
+        setup() {
+          return {
+            count: ref(0),
+          };
+        },
+        methods: {
+          inc() {
+            this.count++;
+          },
+        },
+      }).mount("#app2");
+    </script>
+  </body>
+</html>

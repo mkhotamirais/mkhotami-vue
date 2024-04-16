@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#basicLayout a,
+header nav > a {
+  @apply underline pr-3;
+}
+
+#basicLayout a.router-link-active,
+header nav > a.router-link-active {
+  @apply no-underline font-semibold;
+}

@@ -1,0 +1,8 @@
+{
+  "jobs": [
+    { "id": 1, "title": "judul1", "content": "Konten1" },
+    { "id": 2, "title": "judul2", "content": "Konten2" },
+    { "id": 3, "title": "judul3", "content": "Konten3" }
+  ],
+  "blogs": []
+}

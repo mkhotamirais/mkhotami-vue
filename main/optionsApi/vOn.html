@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>vOn</title>
+    <style>
+      nav a {
+        margin-right: 10px;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      nav a.active {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" v-for="(page, index) in pages" @click.prevent="activePage = index" :class="{active: activePage == index}"
+        >{{page.link.text}}</a
+      >
+    </nav>
+    <p>Active Page {{activePage}}</p>
+    <h1>{{pages[activePage].pageTitle}}</h1>
+    <p>{{pages[activePage].content}}</p>
+
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            activePage: 0,
+            pages: [
+              { link: { text: "home", url: "home.html" }, pageTitle: "home page", content: "this is the home content" },
+              { link: { text: "about", url: "about.html" }, pageTitle: "about page", content: "this is the about content" },
+              {
+                link: { text: "contact", url: "contact.html" },
+                pageTitle: "contanct page",
+                content: "this is the contact content",
+              },
+            ],
+          };
+        },
+      }).mount("body");
+    </script>
+  </body>
+</html>

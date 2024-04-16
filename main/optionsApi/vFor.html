@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>vFor</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li>{{names[0]}}</li>
+        <li>{{names[1]}}</li>
+        <li>{{names[2]}}</li>
+      </ul>
+      <ul>
+        <li v-for="(name, index) in names">{{index+1}}. {{name}}</li>
+      </ul>
+      <ul>
+        <li v-for="name2 in names2">{{name2.name}} - {{name2.age}}</li>
+      </ul>
+    </div>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            names: ["ahmad", "abdul", "siti"],
+            names2: [
+              { id: 1, name: "ahmad", age: 20 },
+              { id: 2, name: "abdul", age: 21 },
+              { id: 3, name: "siti", age: 22 },
+            ],
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

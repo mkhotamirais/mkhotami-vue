@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>optionsApi</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{count}}</div>
+      <button @click="count++">Inc</button>
+    </div>
+
+    <div id="app2">
+      <div>{{count2}}</div>
+      <button @click="inc">Inc2</button>
+    </div>
+
+    <div id="app3">
+      <div>{{count3}}</div>
+      <button @click="count3++">inc3</button>
+    </div>
+
+    <script>
+      // Cara 1
+      const { createApp } = Vue;
+      createApp({
+        data() {
+          return {
+            count: 0,
+          };
+        },
+      }).mount("#app");
+
+      //   Cara 2
+      Vue.createApp({
+        data() {
+          return {
+            count2: 0,
+          };
+        },
+        methods: {
+          inc() {
+            this.count2++;
+          },
+        },
+      }).mount("#app2");
+    </script>
+
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      createApp({
+        data() {
+          return {
+            count3: 0,
+          };
+        },
+      }).mount("#app3");
+    </script>
+  </body>
+</html>
